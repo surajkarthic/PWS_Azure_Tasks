@@ -1,23 +1,24 @@
-# We first specify the terraform provider. 
+# We first specify the terraform provider.
 # Terraform will use the provider to ensure that we can work with Microsoft Azure
 
 terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "3.88.0"
+      version = "3.91.0"
     }
   }
 }
 
-# Here we need to mention the Azure AD Application Object credentials to allow us to work with 
+# Here we need to mention the Azure AD Application Object credentials to allow us to work with
 # our Azure account
 
 provider "azurerm" {
-  subscription_id = "f231ecf7-d2da-4999-9062-528f2ceeaa1f"
-  client_id       = "21247b61-2675-4941-9fe8-30861aa99418"
-  client_secret   = "X3D8Q~FqyYOUmQ1UHLAk.Bkp7oxwndoLxa1wHb9O"
-  tenant_id       = "66fca911-a422-4197-b03e-8057ca45313c"
+  subscription_id = "235f406f-3f36-480a-a7c4-6cab6315e8f2"
+  client_id       = "baee55b2-5c50-4b49-87f6-2dd0d12b6614"
+  client_secret   = "HWK8Q~BHa14IoUJgGUi2wz6-HNiwbzsmLpM-XaAx"
+  tenant_id       = "1cb470ea-28cb-4138-904f-0516fd3a8618"
+  skip_provider_registration = true
   features {}
 }
 
@@ -25,7 +26,7 @@ provider "azurerm" {
 # The name and location are arguements for the resource block
 
 resource "azurerm_resource_group" "sk_grp"{
-  name="sk-grp"
+  name="sk-new"
   location="Central India"
 }
 
@@ -34,7 +35,7 @@ resource "azurerm_resource_group" "sk_grp"{
 
 resource "azurerm_storage_account" "storage_account" {
   name                     = "skstacc30"
-  resource_group_name      = "sk-grp"
+  resource_group_name      = "sk-new"
   location                 = "Central India"
   account_tier             = "Standard"
   account_replication_type = "LRS"
